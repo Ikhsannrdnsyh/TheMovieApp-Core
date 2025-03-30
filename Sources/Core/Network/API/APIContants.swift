@@ -12,6 +12,13 @@ public struct APIConstants {
     public static let basePosterUrl = "https://image.tmdb.org/t/p/w500"
     public static let baseBackdropUrl = "https://image.tmdb.org/t/p/original"
     
-    public static let apiKey = "94c0ca42e5efb3b85fca07dad07151fa"
+    public static let apiKey: String = {
+        guard let key = Bundle.main.infoDictionary?["API_KEY"] as? String, !key.isEmpty else {
+            print("API Key is missing, using default API key.")
+            return "DEFAULT_API_KEY"
+        }
+        print("API Key Loaded: \(key.prefix(4))**** (partially hidden)")
+        return key
+    }()
     
 }
