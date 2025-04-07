@@ -16,4 +16,6 @@ public protocol DetailLocaleDataSource {
     func saveFavoriteMovie(_ movie: Response) throws
     func removeFavoriteMovie(_ movie: Response) throws
     func isFavorite(movieId: Int) -> Bool
+    func addMovieDetail(entity: Response) throws
+
 }
